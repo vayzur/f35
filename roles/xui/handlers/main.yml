@@ -1,0 +1,7 @@
+---
+- name: Restart xui
+  systemd:
+    name: x-ui
+    daemon_reload: true
+    enabled: true
+    state: restarted

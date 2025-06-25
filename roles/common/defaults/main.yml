@@ -1,0 +1,11 @@
+---
+packages:
+  - vim
+  - bash-completion
+  - curl
+  - ca-certificates
+  - unzip
+  - net-tools
+  - dnsutils
+  - tcpdump
+  - ethtool

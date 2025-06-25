@@ -1,0 +1,8 @@
+---
+xui_enabled: false
+
+xui_addr: 127.0.0.1
+xui_port: 2053
+xui_username: admin
+xui_password: admin
+xui_webpath: /
