@@ -1,0 +1,19 @@
+---
+- name: Install Certbot
+  apt:
+    update_cache: true
+    name:
+      - certbot
+      - python3-requests
+    state: present
+
+- name: Check certs directory
+  stat:
+    path: /etc/letsencrypt/live/{{ hostvars[inventory_hostname].ansible_host }}/
+  register: certs
+
+- name: Getting TLS certificates
+  shell: |
+    certbot certonly --standalone --keep --preferred-challenges http -d {{ hostvars[inventory_hostname].ansible_host }} --non-interactive --agree-tos --register-unsafely-without-email
+  changed_when: false
+  when: not certs.stat.exists
